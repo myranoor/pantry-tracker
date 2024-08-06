@@ -1,36 +1,91 @@
+## Overview
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Features
 
-First, run the development server:
+- Add Items: Add items to your inventory with a simple input form.
+- Remove Items: Remove items from your inventory with a click of a button.
+- Search/Filter: Find items in your inventory using the search functionality.
+- Firestore Integration: Data is stored and managed using Firebase Firestore.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
+- Next.js: Framework for building the user interface.
+- React: JavaScript library for building component-based UIs.
+- Firebase Firestore: NoSQL database for storing and retrieving inventory data.
+- Material-UI: UI library for React to style the application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Installation
+To get started with Pantry Tracker, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
+   
+   git clone https://github.com/your-username/pantry-tracker.git
+   cd pantry-tracker
+   
+2. Install dependencies:
+   
+   npm install
+   
+3. Set up Firebase:
 
-## Learn More
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+   - Add a Firestore database to your project.
+   - Obtain your Firebase configuration and add it to `firebase.js` in your project.
 
-To learn more about Next.js, take a look at the following resources:
+   
+   // firebase.js
+   import { initializeApp } from 'firebase/app';
+   import { getFirestore } from 'firebase/firestore';
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   const firebaseConfig = {
+     apiKey: "YOUR_API_KEY",
+     authDomain: "YOUR_AUTH_DOMAIN",
+     projectId: "YOUR_PROJECT_ID",
+     storageBucket: "YOUR_STORAGE_BUCKET",
+     messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+     appId: "YOUR_APP_ID"
+   };
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   const app = initializeApp(firebaseConfig);
+   export const firestore = getFirestore(app);
+   ```
 
-## Deploy on Vercel
+4. Run the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   npm run dev
+   
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Usage
+
+### Adding Items
+
+1. Click the "Add New Item" button.
+2. Enter the item name in the modal that appears.
+3. Click "Add" to add the item to your inventory.
+
+### Removing Items
+
+1. Find the item you want to remove in the inventory list.
+2. Click the "Remove" button next to the item to decrease its quantity or remove it completely if the quantity reaches zero.
+
+### Searching/Filtering Items
+
+1. Use the search input field at the top of the inventory list to filter items by name.
+2. As you type, the inventory list will update to show only the items that match your search query.
+
+## Styling
+
+Styles for the application are managed in `globals.css`. You can customize the appearance by modifying the CSS classes defined there.
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request with any improvements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
